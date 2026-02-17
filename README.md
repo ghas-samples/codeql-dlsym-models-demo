@@ -19,8 +19,7 @@ step-by-step guide for the demo.
    - Step 4 — Inspect the model pack
    - Step 5 — Run analysis WITH models (finds the bug)
    - Step 6 — (Optional) Exploit the vulnerability
-6. [How the model file works](#6-how-the-model-file-works)
-7. [Key takeaways](#7-key-takeaways)
+
 
 ---
 
@@ -136,7 +135,7 @@ codeql database analyze mydb-db \
   --output=results-without-models.sarif
 ```
 
-**🔍 Talking point:** Open `results-without-models.sarif` — there are **no
+**Talking point:** Open `results-without-models.sarif` — there are **no
 SQL injection findings**. CodeQL doesn't recognise the custom wrappers.
 
 ### Step 4 — Inspect the model pack
@@ -157,10 +156,9 @@ Walk through the two files in `models/`:
      - "**/*.model.yml"
    ```
 
-2. **`mydb.model.yml`** — defines the three models (see
-   [Section 6](#6-how-the-model-file-works) for details).
+2. **`mydb.model.yml`** — defines the three models.
 
-**🔍 Talking point:** No QL code needed — just YAML. Anyone who understands the
+**Talking point:** No QL code needed — just YAML. Anyone who understands the
 library's API can write these models.
 
 ### Step 5 — Run analysis WITH models (finds the SQL injection)
@@ -178,7 +176,7 @@ codeql database analyze mydb-db \
 > for packs (it finds `models/qlpack.yml`). `--extension-packs` explicitly
 > activates the model pack by name.
 
-**🔍 Talking point:** Open `results-with-models.sarif` — CodeQL now reports the
+**Talking point:** Open `results-with-models.sarif` — CodeQL now reports the
 SQL injection with a full taint path:
 `myapp_read_input → myapp_format → mydb_exec`.
 
