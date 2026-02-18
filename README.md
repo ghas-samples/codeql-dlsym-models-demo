@@ -1,6 +1,6 @@
 # Models-as-Data: SQL Injection Demo (C / CodeQL)
 
-This project demonstrates how **models-as-data** teaches CodeQL about custom
+This project demonstrates how models-as-data teaches CodeQL about custom
 library functions it doesn't recognise out of the box. Use this README as a
 step-by-step guide for the demo.
 
